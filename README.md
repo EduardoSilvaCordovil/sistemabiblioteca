@@ -1,2 +1,6 @@
 # sistemabiblioteca
- Repositório utilizado para as atividades de Aplicação de Bnaco de Dados
+ Repositório utilizado para as atividades de Aplicação de Banco de Dados
+ 
+ Professor : Claudio Martins
+
+ Alunos: Eduardo Cordovil e Marcelo Faro
