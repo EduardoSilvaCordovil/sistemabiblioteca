@@ -7,7 +7,7 @@ import javax.persistence.EntityManagerFactory;
 
 public class EmprestimoDAO {
 
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("sistemabiblioteca"); // Substitua pelo nome da sua unidade de persistência.
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("sistemabiblioteca");
 
     public void incluirEmprestimo(Emprestimo emprestimo) {
         EntityManager em = emf.createEntityManager();

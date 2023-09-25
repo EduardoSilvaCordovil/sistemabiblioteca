@@ -17,7 +17,6 @@ public class Aluno {
     @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL)
     private List<Emprestimo> emprestimos;
 
-    // Getters and setters
     public Aluno() {}
 
     public Long getId() {
