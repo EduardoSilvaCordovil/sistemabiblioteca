@@ -1,13 +1,15 @@
 package dao;
 
 import entidade.Emprestimo;
+import java.util.List;
 import javax.persistence.Persistence;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 
 public class EmprestimoDAO {
 
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("sistemabiblioteca");
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("sistemabiblioteca"); // Substitua pelo nome da sua unidade de persistência.
 
     public void incluirEmprestimo(Emprestimo emprestimo) {
         EntityManager em = emf.createEntityManager();

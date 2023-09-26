@@ -22,7 +22,7 @@ public class Emprestimo {
     private Aluno aluno;
 
     @ManyToOne
-    @JoinColumn(name = "publicacao_id")
+    @JoinColumn(name = "pub_id")
     private Publicacao publicacao;
 
     // Getters and setters

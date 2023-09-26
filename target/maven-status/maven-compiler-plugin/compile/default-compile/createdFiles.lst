@@ -6,3 +6,4 @@ dao/EmprestimoDAO.class
 entidade/Aluno_.class
 teste/TesteEmprestimoDAO.class
 entidade/Publicacao.class
+dao/DAOFachada.class
