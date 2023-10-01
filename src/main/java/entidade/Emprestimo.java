@@ -4,11 +4,11 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "EMPRESTIMO")
 public class Emprestimo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
     private Long id;
 
     @Temporal(TemporalType.DATE)
@@ -17,16 +17,24 @@ public class Emprestimo {
     @Temporal(TemporalType.DATE)
     private Date dateDevolucao;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "aluno_id")
     private Aluno aluno;
 
     @ManyToOne
-    @JoinColumn(name = "pub_id")
+    @JoinColumn(name = "publicacao_id")
     private Publicacao publicacao;
+    
+    public Emprestimo() {      
+    }
 
-    // Getters and setters
-    public Emprestimo(){}
+    public Emprestimo(Long id, Date dateEmprestimo, Date dateDevolucao, Aluno aluno, Publicacao publicacao) {
+        this.id = id;
+        this.dateEmprestimo = dateEmprestimo;
+        this.dateDevolucao = dateDevolucao;
+        this.aluno = aluno;
+        this.publicacao = publicacao;
+    }
 
     public Long getId() {
         return id;
@@ -67,5 +75,5 @@ public class Emprestimo {
     public void setPublicacao(Publicacao publicacao) {
         this.publicacao = publicacao;
     }
-    
+
 }

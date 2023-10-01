@@ -3,11 +3,11 @@ package entidade;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PUBLICACAO")
 public class Publicacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
     private Long id;
 
     private int ano;
@@ -16,8 +16,16 @@ public class Publicacao {
     private String titulo;
     private int codigoPub;
 
-    // Getters and setters
     public Publicacao() {
+    }
+
+    public Publicacao(Long id, int ano, String tipo, String autor, String titulo, int codigoPub) {
+        this.id = id;
+        this.ano = ano;
+        this.tipo = tipo;
+        this.autor = autor;
+        this.titulo = titulo;
+        this.codigoPub = codigoPub;
     }
 
     public Long getId() {

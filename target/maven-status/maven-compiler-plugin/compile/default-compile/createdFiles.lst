@@ -1,4 +1,5 @@
 entidade/Emprestimo.class
+dao/PublicacaoDAO.class
 entidade/Aluno.class
 entidade/Emprestimo_.class
 entidade/Publicacao_.class
@@ -6,4 +7,3 @@ dao/EmprestimoDAO.class
 entidade/Aluno_.class
 teste/TesteEmprestimoDAO.class
 entidade/Publicacao.class
-dao/DAOFachada.class

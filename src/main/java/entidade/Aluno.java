@@ -1,6 +1,5 @@
 package entidade;
 
-import java.util.List;
 import javax.persistence.*;
 
 @Entity
@@ -8,16 +7,23 @@ import javax.persistence.*;
 public class Aluno {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "nome")
     private String nome;
+
+    @Column(name = "matriculaAluno")
     private int matriculaAluno;
 
-    @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL)
-    private List<Emprestimo> emprestimos;
-
-    public Aluno() {}
+    public Aluno() {       
+    }
+    
+    public Aluno(Long id, String nome, int matriculaAluno) {
+        this.id = id;
+        this.nome = nome;
+        this.matriculaAluno = matriculaAluno;
+    }
 
     public Long getId() {
         return id;
@@ -43,12 +49,4 @@ public class Aluno {
         this.matriculaAluno = matriculaAluno;
     }
 
-    public List<Emprestimo> getEmprestimos() {
-        return emprestimos;
-    }
-
-    public void setEmprestimos(List<Emprestimo> emprestimos) {
-        this.emprestimos = emprestimos;
-    }
-    
 }

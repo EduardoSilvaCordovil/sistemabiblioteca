@@ -1,28 +1,26 @@
 package dao;
 
-import entidade.Emprestimo;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import entidade.Publicacao;
+import javax.persistence.*;
 
-public class EmprestimoDAO {
+public class PublicacaoDAO {
 
     public EntityManager getEM() {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("sistemabiblioteca");
         return factory.createEntityManager();
     }
 
-    public Emprestimo salvar(Emprestimo emprestimo) {
+    public Publicacao salvar(Publicacao publicacao) {
         EntityManager em = getEM();
         try {
             em.getTransaction().begin();
-            em.persist(emprestimo);
+            em.persist(publicacao);
             em.getTransaction().commit();
         } catch (Exception e) {
             em.getTransaction().rollback();
         } finally {
             em.close();
         }
-        return emprestimo;
+        return publicacao;
     }
 }
