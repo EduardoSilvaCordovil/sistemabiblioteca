@@ -1,36 +1,70 @@
 package teste;
 
-import dao.PublicacaoDAO;
+import dao.AlunoDAO;
+import java.util.Date;
 import entidade.Aluno;
+import dao.EmprestimoDAO;
+import dao.PublicacaoDAO;
 import entidade.Emprestimo;
 import entidade.Publicacao;
-import java.util.Date;
-import dao.EmprestimoDAO;
+import javax.persistence.Persistence;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 
 public class TesteEmprestimoDAO {
 
     public static void main(String[] args) {
 
-        Emprestimo emp = new Emprestimo();
-        emp.setDateEmprestimo(new Date());
-        emp.setDateDevolucao(new Date());
-        EmprestimoDAO dao = new EmprestimoDAO();
-        emp = dao.salvar(emp);
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("sistemabiblioteca");
+        EntityManager em = emf.createEntityManager();
 
-        Aluno aluno1 = new Aluno();
-        aluno1.setNome("João");
-        aluno1.setMatriculaAluno(12345);
+        AlunoDAO alunoDAO = new AlunoDAO(em);
+        PublicacaoDAO publicacaoDAO = new PublicacaoDAO(em);
+        EmprestimoDAO emprestimoDAO = new EmprestimoDAO(em);
 
-        Publicacao pub = new Publicacao();
-        pub.setAno(2021);
-        pub.setAutor("José Silva");
-        pub.setCodigoPub(67890);
-        pub.setId(2L);
-        pub.setTipo("Livro");
-        pub.setTitulo("Aventuras no Mundo da Programação");
-        PublicacaoDAO dao2 = new PublicacaoDAO();
-        pub = dao2.salvar(pub);
-        System.out.println("SALVO" + pub.getAno() + "|" + pub.getAutor() + "|" + pub.getCodigoPub() + "|" + pub.getId() + "|" + pub.getTipo() + "|" + pub.getTitulo());
+        // FALTA FAZER UM MÉTODO PARA EXIBIR O BANCO DE DADOS
+        
+        Aluno aluno = new Aluno();
+        aluno.setNome("Carla Moraes");
+        aluno.setMatriculaAluno(38537);
+        aluno = alunoDAO.salvar(aluno);
 
+        Publicacao publicacao = new Publicacao();
+        publicacao.setAno(2018);
+        publicacao.setTipo("Livro");
+        publicacao.setAutor("Pedro Domingos");
+        publicacao.setTitulo("The Master Algorithm");
+        publicacao.setCodigoPub(67867);
+        publicacao = publicacaoDAO.salvar(publicacao);
+
+        Emprestimo emprestimo = new Emprestimo();
+        emprestimo.setAluno(aluno);
+        emprestimo.setPublicacao(publicacao);
+        emprestimo.setDateEmprestimo(new Date());
+        emprestimo = emprestimoDAO.salvar(emprestimo);
+        System.out.println("Empréstimo criado com ID: " + emprestimo.getId());
+
+        Emprestimo emprestimoConsultado = emprestimoDAO.consultar(emprestimo.getId());
+        System.out.println("Detalhes do Empréstimo: Aluno: " + aluno.getId() + " " + emprestimoConsultado.getAluno().getNome()
+                + ", Publicação: " + emprestimoConsultado.getPublicacao().getTitulo());
+
+        emprestimoConsultado.setDateDevolucao(new Date());
+        emprestimoDAO.atualizar(emprestimoConsultado);
+        System.out.println("Empréstimo atualizado com sucesso.");
+
+        // PARA DELETAR APAGUE "/**/"
+        
+        /*emprestimoDAO.deletar(emprestimoConsultado);
+        emprestimoDAO.deletar(emprestimo);
+        System.out.println("Empréstimo deletado com sucesso.");
+
+        alunoDAO.deletar(aluno);
+        System.out.println("Apagando o ID = " + aluno.getId() + " - " + aluno.getNome());
+
+        publicacaoDAO.deletar(publicacao);
+        System.out.println("Publicação delatada com sucesso.");*/
+
+        em.close();
+        emf.close();
     }
 }

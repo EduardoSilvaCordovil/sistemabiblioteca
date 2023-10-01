@@ -6,4 +6,6 @@ entidade/Publicacao_.class
 dao/EmprestimoDAO.class
 entidade/Aluno_.class
 teste/TesteEmprestimoDAO.class
+dao/DAOGenerico.class
 entidade/Publicacao.class
+dao/AlunoDAO.class

@@ -1,6 +1,8 @@
 /home/eduardo/Documentos/GitHub/sistemabiblioteca/src/main/java/teste/TesteEmprestimoDAO.java
 /home/eduardo/Documentos/GitHub/sistemabiblioteca/src/main/java/dao/PublicacaoDAO.java
+/home/eduardo/Documentos/GitHub/sistemabiblioteca/src/main/java/dao/DAOGenerico.java
 /home/eduardo/Documentos/GitHub/sistemabiblioteca/src/main/java/entidade/Aluno.java
 /home/eduardo/Documentos/GitHub/sistemabiblioteca/src/main/java/dao/EmprestimoDAO.java
 /home/eduardo/Documentos/GitHub/sistemabiblioteca/src/main/java/entidade/Publicacao.java
 /home/eduardo/Documentos/GitHub/sistemabiblioteca/src/main/java/entidade/Emprestimo.java
+/home/eduardo/Documentos/GitHub/sistemabiblioteca/src/main/java/dao/AlunoDAO.java

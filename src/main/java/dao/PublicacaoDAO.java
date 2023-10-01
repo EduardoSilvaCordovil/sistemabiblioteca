@@ -1,26 +1,11 @@
 package dao;
 
 import entidade.Publicacao;
-import javax.persistence.*;
+import javax.persistence.EntityManager;
 
-public class PublicacaoDAO {
+public class PublicacaoDAO extends DAOGenerico<Publicacao> {
 
-    public EntityManager getEM() {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("sistemabiblioteca");
-        return factory.createEntityManager();
-    }
-
-    public Publicacao salvar(Publicacao publicacao) {
-        EntityManager em = getEM();
-        try {
-            em.getTransaction().begin();
-            em.persist(publicacao);
-            em.getTransaction().commit();
-        } catch (Exception e) {
-            em.getTransaction().rollback();
-        } finally {
-            em.close();
-        }
-        return publicacao;
+    public PublicacaoDAO(EntityManager em) {
+        super(em, Publicacao.class);
     }
 }

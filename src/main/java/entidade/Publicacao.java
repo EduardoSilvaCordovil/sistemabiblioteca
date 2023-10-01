@@ -3,13 +3,12 @@ package entidade;
 import javax.persistence.*;
 
 @Entity
+@SequenceGenerator(name = "PUB_SEQ", sequenceName = "PUB_SEQ", allocationSize = 1)
 public class Publicacao {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PUB_SEQ")
     private Long id;
-
     private int ano;
     private String tipo;
     private String autor;

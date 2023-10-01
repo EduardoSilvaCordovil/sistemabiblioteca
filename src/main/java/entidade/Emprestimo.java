@@ -4,28 +4,23 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
+@SequenceGenerator(name = "EMP_SEQ", sequenceName = "EMP_SEQ", allocationSize = 1)
 public class Emprestimo {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EMP_SEQ")
     private Long id;
-
     @Temporal(TemporalType.DATE)
     private Date dateEmprestimo;
-
     @Temporal(TemporalType.DATE)
     private Date dateDevolucao;
-
     @ManyToOne
     @JoinColumn(name = "aluno_id")
     private Aluno aluno;
-
     @ManyToOne
-    @JoinColumn(name = "publicacao_id")
+    @JoinColumn(name = "PUBLICACAO_ID")
     private Publicacao publicacao;
-    
-    public Emprestimo() {      
+
+    public Emprestimo() {
     }
 
     public Emprestimo(Long id, Date dateEmprestimo, Date dateDevolucao, Aluno aluno, Publicacao publicacao) {

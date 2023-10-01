@@ -3,16 +3,14 @@ package entidade;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ALUNO")
+@SequenceGenerator(name = "ALN_SEQ", sequenceName = "ALN_SEQ", allocationSize = 1)
 public class Aluno {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ALN_SEQ")
     private Long id;
-
     @Column(name = "nome")
     private String nome;
-
     @Column(name = "matriculaAluno")
     private int matriculaAluno;
 
