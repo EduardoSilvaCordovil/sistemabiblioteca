@@ -3,7 +3,7 @@
  
  Professor : Claudio Martins
 
- Alunos: Eduardo Cordovil e Marcelo Faro
+ Alunos: Eduardo Cordovil e **[Marcelo Faro](https://github.com/farosv)**
 
  # Comandos SQL:
  ```sql
