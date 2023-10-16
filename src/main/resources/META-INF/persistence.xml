@@ -17,9 +17,8 @@
             <property name="eclipselink.ddl-generation.output-mode" value="database"/>
             <property name="eclipselink.sequence-connection-pool" value="true"/>
             <property name="eclipselink.ddl-generation" value="none"/>
-            <property name="eclipselink.sequence-default" value="ALN_SEQ"/>
-             <sequence-generator name="ALN_SEQ" sequence-name="ALN_SEQ" allocation-size="1"/>
-             <sequence-generator name="PUB_SEQ" sequence-name="PUB_SEQ" allocation-size="1"/>
-        </properties>     
+            <sequence-generator name="ALN_SEQ" sequence-name="ALN_SEQ" allocation-size="1"/>
+            <sequence-generator name="PUB_SEQ" sequence-name="PUB_SEQ" allocation-size="1"/>
+        </properties>
     </persistence-unit>
 </persistence>
