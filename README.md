@@ -8,7 +8,7 @@
  # Comandos SQL:
  ```sql
 CREATE TABLE EMPRESTIMO (
-  id INT PRIMARY KEY AUTO_INCREMENT,
+  id INT PRIMARY KEY,
   dateEmprestimo DATE,
   dateDevolucao DATE,
   aluno_id INT,
@@ -16,6 +16,7 @@ CREATE TABLE EMPRESTIMO (
   FOREIGN KEY (aluno_id) REFERENCES ALUNO (id),
   FOREIGN KEY (publicacao_id) REFERENCES PUBLICACAO (id)
 );
+
 
 CREATE TABLE PUBLICACAO (
   id INT PRIMARY KEY AUTO_INCREMENT,
@@ -31,6 +32,8 @@ CREATE TABLE ALUNO (
   nome VARCHAR(100),
   matriculaAluno INT
 );
+
+CREATE SEQUENCE ALN_SEQ;
 ```
 # persistence.xml
 ```xml
