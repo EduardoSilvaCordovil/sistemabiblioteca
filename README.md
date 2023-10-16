@@ -17,7 +17,6 @@ CREATE TABLE EMPRESTIMO (
   FOREIGN KEY (publicacao_id) REFERENCES PUBLICACAO (id)
 );
 
-
 CREATE TABLE PUBLICACAO (
   id INT PRIMARY KEY AUTO_INCREMENT,
   ano INT,
@@ -49,9 +48,10 @@ CREATE SEQUENCE EMP_SEQ
         <class>entidade.Publicacao</class>
         <class>entidade.Aluno</class>
         <properties>
-            <property name="jaka.persistence.jdbc.url" value="jdbc:h2:~/bdbiblioteca"/>
-       <!-- <property name="jaka.persistence.jdbc.url" value="jdbc:h2:mem:bdbiblioteca"/>         
-            <property name="jaka.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/bdbiblioteca"/> -->  
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:/home/eduardo/appbd/teste"/>
+       <!-- <property name="javax.persistence.jdbc.url" value="jdbc:h2:~/bdbiblioteca"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:bdbiblioteca"/>         
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/bdbiblioteca"/> -->  
             <property name="javax.persistence.jdbc.user" value="sa"/>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
             <property name="javax.persistence.jdbc.password" value=""/>
@@ -59,10 +59,12 @@ CREATE SEQUENCE EMP_SEQ
             <property name="eclipselink.ddl-generation.output-mode" value="database"/>
             <property name="eclipselink.sequence-connection-pool" value="true"/>
             <property name="eclipselink.ddl-generation" value="none"/>
-        </properties>
+            <property name="eclipselink.sequence-default" value="ALN_SEQ"/>
+             <sequence-generator name="ALN_SEQ" sequence-name="ALN_SEQ" allocation-size="1"/>
+             <sequence-generator name="PUB_SEQ" sequence-name="PUB_SEQ" allocation-size="1"/>
+        </properties>     
     </persistence-unit>
 </persistence>
-
 ```
 
 # Como executar o projeto:
