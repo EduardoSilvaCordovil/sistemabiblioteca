@@ -3,7 +3,8 @@ package entidade;
 import javax.persistence.*;
 
 @Entity
-@SequenceGenerator(name = "ALN_SEQ", sequenceName = "ALN_SEQ", allocationSize = 1)
+//@SequenceGenerator(name = "ALN_SEQ", sequenceName = "ALN_SEQ", allocationSize = 1)
+@SequenceGenerator(name = "ALN_SEQ_GENERATOR", sequenceName = "ALN_SEQ", allocationSize = 1)
 public class Aluno {
 
     @Id

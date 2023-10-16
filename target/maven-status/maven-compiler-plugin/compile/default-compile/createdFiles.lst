@@ -1,10 +1,7 @@
 entidade/Emprestimo.class
 dao/PublicacaoDAO.class
 entidade/Aluno.class
-entidade/Emprestimo_.class
-entidade/Publicacao_.class
 dao/EmprestimoDAO.class
-entidade/Aluno_.class
 teste/TesteEmprestimoDAO.class
 dao/DAOGenerico.class
 entidade/Publicacao.class
