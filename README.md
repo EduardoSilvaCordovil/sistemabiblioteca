@@ -3,7 +3,7 @@
  
  Professor : Claudio Martins
 
- Alunos: Eduardo Cordovil e Marcelo Faro
+ Alunos: **[Marcelo Faro](https://github.com/farosv)** e Eduardo Cordovil
 
  # Comandos SQL:
  ```sql
@@ -32,6 +32,32 @@ CREATE TABLE ALUNO (
   matriculaAluno INT
 );
 ```
+# persistence.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+    <persistence-unit name="sistemabiblioteca" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>entidade.Emprestimo</class>
+        <class>entidade.Publicacao</class>
+        <class>entidade.Aluno</class>
+        <properties>
+            <property name="jaka.persistence.jdbc.url" value="jdbc:h2:~/bdbiblioteca"/>
+       <!-- <property name="jaka.persistence.jdbc.url" value="jdbc:h2:mem:bdbiblioteca"/>         
+            <property name="jaka.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/bdbiblioteca"/> -->  
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="javax.persistence.schema-generation.database.action" value="none"/>
+            <property name="eclipselink.ddl-generation.output-mode" value="database"/>
+            <property name="eclipselink.sequence-connection-pool" value="true"/>
+            <property name="eclipselink.ddl-generation" value="none"/>
+        </properties>
+    </persistence-unit>
+</persistence>
+
+```
+
 # Como executar o projeto:
 
 O projeto é composto pelas pastas:
