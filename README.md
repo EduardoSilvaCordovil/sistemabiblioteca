@@ -1,7 +1,7 @@
 # sistemabiblioteca
  Repositório utilizado para as atividades de Aplicação de Banco de Dados
  
- Professor : Claudio Martins
+ Professor: Claudio Martins
 
  Alunos: **[Marcelo Faro](https://github.com/farosv)** e Eduardo Cordovil
 
